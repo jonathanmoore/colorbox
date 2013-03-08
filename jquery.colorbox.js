@@ -374,7 +374,11 @@
                 // Return focus on closing
                 if (settings.returnFocus) {
                     $events.one(event_closed, function () {
-                        $(element).focus();
+                    	/* I can't explain it, but assigning focus to the element causes a weird
+                    	/  shift in webkit with a combo of translate3d(), overflow:hidden, negative margins
+                    	/  after countless hours I'm ghetto rigging it.
+                    	*/
+                        //$(element).focus();
                     });
                 }
 			}
